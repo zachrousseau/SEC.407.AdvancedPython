@@ -94,7 +94,7 @@ def command_menu():
     print("add - Add a contact")
     print("del - Delete a contact")
     print("exit - Exit program")
-    command = (input("Command: "))
+    command = ((input("Command: ")).lower()).strip()
 
     match command:
         case "list":
