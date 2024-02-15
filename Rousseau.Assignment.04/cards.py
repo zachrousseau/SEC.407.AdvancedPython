@@ -2,6 +2,7 @@ class CardDeck ():
 
     def __init__(self): 
         self.deck = {"hearts" : self.suite(), "diamonds" : self.suite(), "clubs" : self.suite(), "spades" : self.suite()}
+        self.count = 52
 
     def suite(self):
         return {
@@ -30,15 +31,29 @@ class CardDeck ():
         suite_name = random.choice(suites)
         suite = self.deck[suite_name]
 
-        card = random.choice(list(suite.keys()))
-        card_value = suite[card]
+        if(self.count == 0):
+            print("No more cards left")
+            pass
+        
+        try:
+            card = random.choice(list(suite.keys()))
 
-        del suite[card]
+            card_value = suite[card]
 
-        return {suite_name : {card : card_value}}
+            del suite[card]
+            self.count = self.count - 1
+
+            return {suite_name : {card : card_value}}
+        except IndexError:
+            self.draw_card()
+        
+        
     
     def __str__(self):
         return str(self.deck)
+    
+
+    
     
 
 
@@ -67,6 +82,12 @@ class CardHand():
 
         (self.hand[suite_key])[card_key] = card_value
 
+    def total(self):
+        if(self.total_high > 21):
+            return self.total_low
+        else:
+            return self.total_high
+        
 
     def __str__(self):
         output = ""
