@@ -39,8 +39,8 @@ def main():
     import cards
     print("Card Dealer")
 
-    deck = cards.CardDeck()
-    hand = cards.CardHand()
+    deck = cards.Deck()
+    hand = cards.Hand()
 
 
     print(f"\nI have a shuffled deck of {deck.count} cards")

@@ -1,10 +1,10 @@
 def blackjack():
     import cards
 
-    deck = cards.CardDeck()
+    deck = cards.Deck()
     
-    player_hand = cards.CardHand()
-    dealer_hand = cards.CardHand()
+    player_hand = cards.Hand()
+    dealer_hand = cards.Hand()
 
     dealer_hand.add_card(deck.draw_card())
     player_hand.add_card(deck.draw_card())
