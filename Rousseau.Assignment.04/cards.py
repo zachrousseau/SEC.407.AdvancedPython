@@ -9,20 +9,20 @@ class Deck ():
 
     def cards(self):
         return {
-            "1" : [1],
-            "2" : [2],
-            "3" : [3],
-            "4" : [4],
-            "5" : [5],
-            "6" : [6],
-            "7" : [7],
-            "8" : [8],
-            "9" : [9],
-            "10": [10],
-            "Jack" : [10],
-            "Queen" : [10],
-            "King" : [10],
-            "Ace" : [1, 11],
+            "1" : 1,
+            "2" : 2,
+            "3" : 3,
+            "4" : 4,
+            "5" : 5,
+            "6" : 6,
+            "7" : 7,
+            "8" : 8,
+            "9" : 9,
+            "10": 10,
+            "Jack" : 10,
+            "Queen" : 10,
+            "King" : 10,
+            "Ace" : 11,
         }
     
     def suites(self):
@@ -31,13 +31,13 @@ class Deck ():
     def draw_card(self):
         import random 
 
-        
-
         if(self.count == 0):
             print("No more cards left")
-            pass
+            return
 
-        return random.choice(self.deck)   
+        self.count = self.count - 1
+        return random.choice(self.deck) 
+      
         
     def __str__(self):
         return str(self.deck)
